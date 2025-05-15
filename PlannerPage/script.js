@@ -1,6 +1,4 @@
-const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbyFwqhyTDGmCMeBhVIj3rrhGpuGHj7zUZoDYMnvigc9tHUf5iCDLh5FVqGNKLBT--uLfA/exec'
-const CREW_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT3I2JQkKIW1UtSNh9IHTN10j8Gx0IGxT8hULU-od8Odq2RWazxvTVe3kNBti6GiftZMhkdjybfkb5m/pub?output=csv'
-
+const SHEET_ID = '1vOylK67Ux0BtKpeuC61hAYKkIFZYnvB6m8idcDS4c4Y'
 const API_KEY = 'AIzaSyC3REgIGz8Uep0TOwNYR9a0IDpllKig-F4'
 
 function getCrewFromURL() {
