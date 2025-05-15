@@ -91,7 +91,7 @@ document.getElementById("newCrewForm").addEventListener("submit", async (e) => {
       statusMsg.textContent = `❌ Erreur: ${data.message || "Erreur inconnue"}`;
     }
   } catch (error) {
-    statusMsg.textContent = "❌ Erreur réseau: ${error.message}. Réessayez plus tard.";
+    statusMsg.textContent = `❌ Erreur réseau: ${error.message}. Réessayez plus tard.`;
   }
 });
 
