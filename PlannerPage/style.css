@@ -6,20 +6,6 @@ h1 {
     text-align: center;
     margin-bottom: 20px;
 }
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 30px;
-}
-th, td {
-    border: 1px solid #333;
-    padding: 8px;
-    text-align: center;
-}
-th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-}
 .total-row {
     font-weight: bold;
     background-color: #f2f2f2;
@@ -55,3 +41,104 @@ th {
 .notes {
     margin-top: 30px;
 }
+
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    z-index: 1000;
+}
+.error-message {
+    background-color: #ff6b6b;
+    color: white;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    text-align: center;
+}
+.success-message {
+    background-color: #51cf66;
+    color: white;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    text-align: center;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #333;
+}
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+td input {
+    width: 100%;
+    border: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    padding: 5px;
+}
+td input:focus {
+    outline: 2px solid #4dabf7;
+    background-color: white;
+}
+.actions {
+    width: 60px;
+    text-align: center;
+}
+button.delete-row {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+button.delete-row:hover {
+    color: #ff6b6b;
+}
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+#addStintButton, #saveChangesButton {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+#addStintButton {
+    background-color: #339af0;
+    color: white;
+}
+#saveChangesButton {
+    background-color: #51cf66;
+    color: white;
+}
+#addStintButton:hover {
+    background-color: #228ae6;
+}
+#saveChangesButton:hover {
+    background-color: #40c057;
+}
+.james input { background-color: transparent; }
+.kingz input { background-color: transparent; }
+.morpheus input { background-color: transparent; }
+.blitz input { background-color: transparent; }
