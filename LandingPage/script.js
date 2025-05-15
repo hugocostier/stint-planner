@@ -28,7 +28,7 @@ document.getElementById("crewSelectForm").addEventListener("submit", (e) => {
   }
 });
 
-document.getElementById("newCrewForm").addEventListener("submit", async async async async (e) => {
+document.getElementById("newCrewForm").addEventListener("submit", async (e) => {
   e.preventDefault();
   const newCrew = document.getElementById("newCrewName").value.trim();
   const statusMsg = document.getElementById("statusMsg");
