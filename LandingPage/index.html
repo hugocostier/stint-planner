@@ -3,28 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Select Your Crew - Stint Planner</title>
+  <title>Choisis ton équipage - Stint Planner</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="../reset.css" />
 </head>
 <body>
   <div class="container">
-    <h1>🏁 24H Stint Planner</h1>
-    <p>Select your crew or create a new one:</p>
+    <h1>🏁 ACC Stint Planner</h1>
+    <p>Choisis un équipage ou crée-en un nouveau :</p>
 
     <form id="crewSelectForm">
-      <label for="crewSelect">Choose your crew:</label>
+      <label for="crewSelect">Choisis ton équipage:</label>
       <select id="crewSelect" required>
-        <option disabled selected value="">-- Select a crew --</option>
+        <option disabled selected value="">-- Choisis un équipage --</option>
       </select>
-      <button type="submit">Open Planner</button>
+      <button type="submit">Voir le planning</button>
     </form>
 
     <hr />
 
     <form id="newCrewForm">
-      <label for="newCrewName">Create a new crew:</label>
-      <input type="text" id="newCrewName" placeholder="e.g. Team BlitZ" required />
-      <button type="submit">Create Crew</button>
+      <label for="newCrewName">Créer un nouvel équipage :</label>
+      <input type="text" id="newCrewName" placeholder="ex. GT10" required />
+      <button type="submit">Créer équipage</button>
     </form>
 
     <p class="status" id="statusMsg"></p>
