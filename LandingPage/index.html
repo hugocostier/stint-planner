@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Select Your Crew - Stint Planner</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>🏁 24H Stint Planner</h1>
+    <p>Select your crew or create a new one:</p>
+
+    <form id="crewSelectForm">
+      <label for="crewSelect">Choose your crew:</label>
+      <select id="crewSelect" required>
+        <option disabled selected value="">-- Select a crew --</option>
+      </select>
+      <button type="submit">Open Planner</button>
+    </form>
+
+    <hr />
+
+    <form id="newCrewForm">
+      <label for="newCrewName">Create a new crew:</label>
+      <input type="text" id="newCrewName" placeholder="e.g. Team BlitZ" required />
+      <button type="submit">Create Crew</button>
+    </form>
+
+    <p class="status" id="statusMsg"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
