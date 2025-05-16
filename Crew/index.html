@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Détails de l'équipage - Stint Planner</title>
+  <link rel="stylesheet" href="../reset.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <nav class="nav-bar">
+      <a href="../LandingPage/index.html" class="nav-link"><i class="fa-solid fa-backward-step"></i> Retour</a>
+      <h1 id="crewTitle">🏁 Détails de l'équipage</h1>
+    </nav>
+
+    <div class="crew-details-section">
+      <h2>Informations de l'équipage</h2>
+      <form id="updateCrewForm">
+        <label for="crewNameInput">Nom de l'équipage:</label>
+        <input type="text" id="crewNameInput" required />
+        <button type="submit">Mettre à jour le nom</button>
+      </form>
+      <p class="status" id="crewUpdateStatus"></p>
+    </div>
+
+    <div class="crew-members-section">
+      <h2>Membres de l'équipage</h2>
+      <div id="crewMembersList"></div>
+      
+      <form id="addDriverForm">
+        <label for="newDriverName">Ajouter un pilote:</label>
+        <input type="text" id="newDriverName" placeholder="Nom du pilote" required />
+        <button type="submit">Ajouter</button>
+      </form>
+      <p class="status" id="driverUpdateStatus"></p>
+    </div>
+
+    <div class="events-section">
+      <h2>Événements</h2>
+      <div id="eventsList"></div>
+      
+      <form id="addEventForm">
+        <h3>Créer un nouvel événement</h3>
+        <div class="form-row">
+          <label for="eventName">Nom de l'événement:</label>
+          <input type="text" id="eventName" placeholder="ex. Spa 24h" required />
+        </div>
+        <div class="form-row">
+          <label for="eventDate">Date:</label>
+          <input type="date" id="eventDate" required />
+        </div>
+        <div class="form-row">
+          <label for="eventDuration">Durée (heures):</label>
+          <input type="number" id="eventDuration" min="1" max="24" value="1" required />
+        </div>
+        <button type="submit">Créer l'événement</button>
+      </form>
+      <p class="status" id="eventUpdateStatus"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
