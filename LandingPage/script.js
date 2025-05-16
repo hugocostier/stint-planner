@@ -43,11 +43,24 @@ async function populateCrewOptions() {
   }
 }
 
+const addDriverBtn = document.getElementById("addDriverBtn");
+
+addDriverBtn.addEventListener("click", () => {
+  const driversContainer = document.getElementById("driversContainer");
+  const newInput = document.createElement("input");
+  newInput.type = "text";
+  newInput.name = "drivers";
+  newInput.placeholder = "Nom du pilote";
+  newInput.required = true;
+
+  driversContainer.appendChild(newInput);
+});
+
 document.getElementById("crewSelectForm").addEventListener("submit", (e) => {
   e.preventDefault();
   const crew = document.getElementById("crewSelect").value;
   if (crew) {
-    window.location.href = `../PlannerPage/index.html?crew=${encodeURIComponent(crew)}`;
+    window.location.href = `../Crew/index.html?crew=${encodeURIComponent(crew)}`;
   }
 });
 
@@ -55,9 +68,16 @@ document.getElementById("newCrewForm").addEventListener("submit", async (e) => {
   e.preventDefault();
   const newCrew = document.getElementById("newCrewName").value.trim();
   const statusMsg = document.getElementById("statusMsg");
+  const driverInputs = document.querySelectorAll('input[name="drivers"]');
+  const drivers = Array.from(driverInputs).map(input => input.value.trim()).filter(name => name !== "");
 
   if (!newCrew) {
     statusMsg.textContent = "❌ Veuillez entrer un nom d'équipage.";
+    return;
+  }
+
+  if (drivers.length === 0) {
+    statusMsg.textContent = "❌ Ajoute au moins un pilote.";
     return;
   }
 
@@ -68,7 +88,11 @@ document.getElementById("newCrewForm").addEventListener("submit", async (e) => {
       redirect: "follow", 
       method: "POST",
       headers: {"Content-Type": "text/plain;charset=utf-8"},
-      body: JSON.stringify({ crewName: newCrew }),
+      body: JSON.stringify({ 
+        action: 'addCrew', 
+        crewName: newCrew, 
+        drivers: drivers, 
+      }),
       mode: "cors"
     });
 
@@ -79,13 +103,11 @@ document.getElementById("newCrewForm").addEventListener("submit", async (e) => {
     const data = await response.json();
 
     if (data.status === "success") {
-      statusMsg.textContent = `✅ Équipage "${newCrew}" créé. Tu peux maintenant le choisir depuis la liste déroulante.`;
-      const option = document.createElement("option");
-      option.value = newCrew;
-      option.textContent = newCrew;
-      document.getElementById("crewSelect").appendChild(option);
-      document.getElementById("crewSelect").value = newCrew;
-      document.getElementById("newCrewName").value = "";
+      statusMsg.textContent = `✅ Équipage "${newCrew}" créé avec ${drivers.length} pilote(s).`;
+
+      setTimeout(() => {
+        window.location.href = `crew_details.html?crew=${encodeURIComponent(newCrew)}`;
+      }, 1500);
     } else if (data.status === "exists") {
       statusMsg.textContent = "⚠️ Cet équipage existe déjà.";
     } else {

@@ -17,7 +17,7 @@
       <select id="crewSelect" required>
         <option disabled selected value="">-- Choisis un équipage --</option>
       </select>
-      <button type="submit">Voir le planning</button>
+      <button type="submit">Voir l'équipage</button>
     </form>
 
     <hr />
@@ -25,6 +25,13 @@
     <form id="newCrewForm">
       <label for="newCrewName">Créer un nouvel équipage :</label>
       <input type="text" id="newCrewName" placeholder="ex. GT10" required />
+      
+      <div id="driversContainer">
+        <label>Ajoute au moins un pilote :</label>
+        <input type="text" name="drivers" placeholder="Nom du pilote" required />
+      </div>
+      <button type="button" id="addDriverBtn">Ajouter un pilote</button>
+
       <button type="submit">Créer équipage</button>
     </form>
 
