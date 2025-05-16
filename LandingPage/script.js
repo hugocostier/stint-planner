@@ -65,8 +65,9 @@ document.getElementById("newCrewForm").addEventListener("submit", async (e) => {
 
   try {
     const response = await fetch(WEB_APP_URL, {
+      redirect: "follow", 
       method: "POST",
-      headers: {"Content-Type": "application/json"},
+      headers: {"Content-Type": "text/plain;charset=utf-8"},
       body: JSON.stringify({ crewName: newCrew }),
       mode: "cors"
     });
@@ -91,6 +92,7 @@ document.getElementById("newCrewForm").addEventListener("submit", async (e) => {
       statusMsg.textContent = `❌ Erreur: ${data.message || "Erreur inconnue"}`;
     }
   } catch (error) {
+    console.error('Error creating crew:', error);
     statusMsg.textContent = `❌ Erreur réseau: ${error.message}. Réessayez plus tard.`;
   }
 });
