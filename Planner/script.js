@@ -8,7 +8,7 @@ function getURLParams() {
   const params = new URLSearchParams(window.location.search);
   return {
     crew: params.get('crew') || 'Équipage inconnu',
-    event: params.get('event') || ''
+    eventId: params.get('eventId') || ''
   };
 }
 
@@ -92,7 +92,7 @@ async function initPage() {
   
   try {
     await fetchDrivers(params.crew);
-    await fetchEventDetails(params.crew, params.event);
+    await fetchEventDetails(params.crew, params.eventId);
     await fetchStints(params.crew, eventData.name);
     setupEventListeners();
   } catch (error) {
@@ -127,11 +127,11 @@ async function fetchDrivers(crew) {
   }
 }
 
-async function fetchEventDetails(crew, eventName) {
+async function fetchEventDetails(crew, eventId) {
   showLoading(true);
   
   try {
-    const response = await fetch(`${WEB_APP_URL}?action=getEvent&crewName=${encodeURIComponent(crew)}&eventName=${encodeURIComponent(eventName)}`);
+    const response = await fetch(`${WEB_APP_URL}?action=getEvent&crewName=${encodeURIComponent(crew)}&eventId=${encodeURIComponent(eventId)}`);
     
     if (!response.ok) {
       throw new Error('Erreur réseau lors de la récupération des détails de l\'événement');
