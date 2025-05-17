@@ -219,6 +219,12 @@ function populateStintsTable(stints) {
   });
 }
 
+function formatTime(dateStr) {
+  if (!dateStr) return '--';
+  const date = new Date(dateStr);
+  return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+}
+
 function createStintRow(stint, rowNumber) {
   const row = document.createElement('tr');
   
@@ -232,7 +238,7 @@ function createStintRow(stint, rowNumber) {
   row.appendChild(numberCell);
   
   const timeCell = document.createElement('td');
-  timeCell.textContent = `${stint.start || '--'} - ${stint.end || '--'}`;
+  timeCell.textContent = `${formatTime(stint.start) || '--'} - ${formatTime(stint.end) || '--'}`;
   row.appendChild(timeCell);
   
   const driverCell = document.createElement('td');
