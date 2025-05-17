@@ -124,7 +124,7 @@ async function loadEvents() {
           const viewPlanBtn = document.createElement('button');
           viewPlanBtn.textContent = 'Voir le planning';
           viewPlanBtn.className = 'view-plan-btn';
-          viewPlanBtn.addEventListener('click', () => viewStintPlan(event.id));
+          viewPlanBtn.addEventListener('click', () => viewStintPlanner(event.id));
           
           const deleteBtn = document.createElement('button');
           deleteBtn.textContent = 'Supprimer';
