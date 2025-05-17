@@ -8,22 +8,26 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <a href="../Crew/index.html" class="nav-btn">← Retour à l'équipage</a>
-    
-    <h1 id="pageTitle">Chargement des détails...</h1>
+    <section class="page-header">
+        <a href="../Crew/index.html" class="nav-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" heigh="14" width="14" viewBox="0 0 448 512"><path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg> Retour à l'équipage
+        </a>
+
+        <h1 id="pageTitle">Chargement des détails...</h1>
+    </section>
 
     <div id="statusMsg"></div>
-
+    
     <section class="event-details" id="eventDetails">
         <h2>Détails de l'événement</h2>
         <div class="event-info">
             <div class="event-field">
-                <label for="eventName">Nom de l'événement</label>
+                <label for="eventName">Nom</label>
                 <input type="text" id="eventName" placeholder="Nom de l'événement">
             </div>
             <div class="event-field">
                 <label for="eventDate">Date</label>
-                <input type="datetime-local" id="eventDate">
+                <input type="date" id="eventDate">
             </div>
             <div class="event-field">
                 <label for="eventDuration">Durée (heures)</label>
@@ -31,7 +35,7 @@
             </div>
         </div>
         <div class="actions-bar">
-            <button id="saveEventBtn">Enregistrer les modifications</button>
+            <button id="saveEventBtn" class="save">Enregistrer les modifications</button>
             <button id="deleteEventBtn" class="delete">Supprimer l'événement</button>
         </div>
     </section>
@@ -60,28 +64,12 @@
                 </div>
             </div>
             <div class="actions-bar">
-                <button id="addStintBtn">Ajouter ce stint</button>
+                <button id="addStintBtn" class="save">Ajouter ce stint</button>
                 <button id="cancelEditBtn" class="secondary" style="display: none;">Annuler la modification</button>
             </div>
         </div>
 
-        <div class="legend">
-            <div class="legend-item">
-                <div class="color-box james"></div>
-                <span>James</span>
-            </div>
-            <div class="legend-item">
-                <div class="color-box kingz"></div>
-                <span>KingZ</span>
-            </div>
-            <div class="legend-item">
-                <div class="color-box morpheus"></div>
-                <span>Morpheus</span>
-            </div>
-            <div class="legend-item">
-                <div class="color-box blitz"></div>
-                <span>BlitZ</span>
-            </div>
+        <div class="legend" id="legendContainer">
         </div>
     
         <table id="stintsTable">

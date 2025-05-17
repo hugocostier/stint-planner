@@ -94,6 +94,7 @@ async function initPage() {
     await fetchDrivers(params.crew);
     await fetchEventDetails(params.crew, params.eventId);
     await fetchStints(params.crew, eventData.name);
+    populateLegend();
     setupEventListeners();
   } catch (error) {
     console.error('Initialization error:', error);
@@ -185,7 +186,7 @@ function displayEventDetails() {
   
   const eventDate = new Date(eventData.date);
   if (!isNaN(eventDate.getTime())) {
-    const formattedDate = eventDate.toISOString().substring(0, 16);
+    const formattedDate = eventDate.toISOString().split('T')[0];
     document.getElementById('eventDate').value = formattedDate;
   }
   
@@ -207,6 +208,46 @@ function populateDriverSelector() {
     option.textContent = driver;
     driverSelector.appendChild(option);
   });
+}
+
+const driverColors = {};
+function getRandomColor(alpha = 0.9) {
+  const hue = Math.floor(Math.random() * 360);
+  return `hsla(${hue}, 70%, 60%, ${alpha})`;
+}
+
+function generateDriverStyles() {
+  const styleTag = document.createElement('style');
+  styleTag.innerHTML = Object.entries(driverColors).map(
+    ([driver, color]) => `.${driver.toLowerCase()} { background-color: ${color}; }`
+  ).join('\n');
+  document.head.appendChild(styleTag);
+}
+
+function populateLegend() {
+  const legendContainer = document.getElementById('legendContainer');
+  legendContainer.innerHTML = ''; 
+
+  driversList.forEach(driver => {
+    const color = getRandomColor(); 
+    driverColors[driver] = color; 
+
+    const item = document.createElement('div');
+    item.className = 'legend-item';
+
+    const colorBox = document.createElement('div');
+    colorBox.className = 'color-box';
+    colorBox.style.backgroundColor = color;
+
+    const label = document.createElement('span');
+    label.textContent = driver;
+
+    item.appendChild(colorBox);
+    item.appendChild(label);
+    legendContainer.appendChild(item);
+  });
+
+  generateDriverStyles(); 
 }
 
 function populateStintsTable(stints) {
@@ -471,7 +512,7 @@ function addOrUpdateStint() {
     if (data.status === 'success') {
       fetchStints(params.crew, eventData.name);
       resetStintForm();
-      displayMessage(currentEditingStintIndex !== null ? 'Stint mis à jour !' : 'Nouveau stint ajouté !');
+      displayMessage(data.message);
     } else {
       throw new Error(data.message || 'Erreur lors de l\'enregistrement');
     }
