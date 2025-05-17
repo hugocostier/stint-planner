@@ -172,7 +172,7 @@ document.getElementById('updateCrewForm').addEventListener('submit', async (e) =
       redirect: "follow",
       headers: {"Content-Type": "text/plain;charset=utf-8"},
       body: JSON.stringify({
-        action: 'updateCrewName',
+        action: 'editCrew',
         oldCrewName: crewName,
         newCrewName: newCrewName
       }),
@@ -256,7 +256,7 @@ async function removeDriver(driverName) {
       redirect: "follow",
       headers: {"Content-Type": "text/plain;charset=utf-8"},
       body: JSON.stringify({
-        action: 'removeDriver',
+        action: 'deleteDriver',
         crewName: crewName,
         driverName: driverName
       }),
@@ -301,7 +301,7 @@ document.getElementById('addEventForm').addEventListener('submit', async (e) => 
       redirect: "follow",
       headers: {"Content-Type": "text/plain;charset=utf-8"},
       body: JSON.stringify({
-        action: 'createEvent',
+        action: 'addEvent',
         crewName: crewName,
         eventName: eventName,
         eventDate: eventDate,
@@ -346,7 +346,7 @@ async function removeEvent(eventId) {
       redirect: "follow",
       headers: {"Content-Type": "text/plain;charset=utf-8"},
       body: JSON.stringify({
-        action: 'removeEvent',
+        action: 'deleteEvent',
         crewName: crewName,
         eventId: eventId
       }),
