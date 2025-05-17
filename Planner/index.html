@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails de l'événement - Stint Planner</title>
+    <link rel="stylesheet" href="../reset.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="../Crew/index.html" class="nav-btn">← Retour à l'équipage</a>
+    
+    <h1 id="pageTitle">Chargement des détails...</h1>
+
+    <div id="statusMsg"></div>
+
+    <section class="event-details" id="eventDetails">
+        <h2>Détails de l'événement</h2>
+        <div class="event-info">
+            <div class="event-field">
+                <label for="eventName">Nom de l'événement</label>
+                <input type="text" id="eventName" placeholder="Nom de l'événement">
+            </div>
+            <div class="event-field">
+                <label for="eventDate">Date</label>
+                <input type="datetime-local" id="eventDate">
+            </div>
+            <div class="event-field">
+                <label for="eventDuration">Durée (heures)</label>
+                <input type="number" id="eventDuration" min="1" step="0.5" placeholder="Durée en heures">
+            </div>
+        </div>
+        <div class="actions-bar">
+            <button id="saveEventBtn">Enregistrer les modifications</button>
+            <button id="deleteEventBtn" class="delete">Supprimer l'événement</button>
+        </div>
+    </section>
+
+    <section id="stintPlanner">
+        <h2>Planning des stints</h2>
+        
+        <div id="addStintForm" class="event-details">
+            <h3>Ajouter un stint</h3>
+            <div class="event-info">
+                <div class="event-field">
+                    <label for="stintDriver">Pilote</label>
+                    <select id="stintDriver" class="driver-selector"></select>
+                </div>
+                <div class="event-field">
+                    <label for="stintStart">Heure de début</label>
+                    <input type="time" id="stintStart">
+                </div>
+                <div class="event-field">
+                    <label for="stintEnd">Heure de fin</label>
+                    <input type="time" id="stintEnd">
+                </div>
+                <div class="event-field">
+                    <label for="stintComment">Commentaire</label>
+                    <input type="text" id="stintComment" placeholder="Commentaire (optionnel)">
+                </div>
+            </div>
+            <div class="actions-bar">
+                <button id="addStintBtn">Ajouter ce stint</button>
+                <button id="cancelEditBtn" class="secondary" style="display: none;">Annuler la modification</button>
+            </div>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="color-box james"></div>
+                <span>James</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box kingz"></div>
+                <span>KingZ</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box morpheus"></div>
+                <span>Morpheus</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box blitz"></div>
+                <span>BlitZ</span>
+            </div>
+        </div>
+    
+        <table id="stintsTable">
+            <thead>
+                <tr>
+                    <th>Relais</th>
+                    <th>Horaire</th>
+                    <th>Pilote</th>
+                    <th>Durée</th>
+                    <th>Commentaire</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <table id="totalsTable">
+            <thead>
+                <tr>
+                    <th>Pilote</th>
+                    <th>Temps de conduite total</th>
+                    <th>Nombre de relais</th>
+                </tr>
+            </thead>
+            <tbody>
+               <tr class="total-row">
+                    <td>TOTAL</td>
+                    <td>--</td>
+                    <td>--</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
