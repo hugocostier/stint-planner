@@ -372,7 +372,7 @@ function deleteStint(row, stintIndex) {
       redirect: "follow", 
       method: 'POST',
       headers: {
-        'Content-Type': 'text/plain;charset=utf-8"',
+        'Content-Type': 'text/plain;charset=utf-8',
       },
       body: JSON.stringify(requestBody),
       mode: "cors",
@@ -456,7 +456,7 @@ function addOrUpdateStint() {
     redirect: "follow", 
     method: 'POST',
     headers: {
-      'Content-Type': 'text/plain;charset=utf-8"',
+      'Content-Type': 'text/plain;charset=utf-8',
     },
     body: JSON.stringify(requestBody),
     mode: "cors",
@@ -524,7 +524,7 @@ function saveEventChanges() {
     redirect: "follow", 
     method: 'POST',
     headers: {
-      'Content-Type': 'text/plain;charset=utf-8"',
+      'Content-Type': 'text/plain;charset=utf-8',
     },
     body: JSON.stringify(requestBody),
     mode: "cors",
@@ -571,7 +571,7 @@ function deleteEvent() {
       redirect: "follow", 
       method: 'POST',
       headers: {
-        'Content-Type': 'text/plain;charset=utf-8"',
+        'Content-Type': 'text/plain;charset=utf-8',
       },
       body: JSON.stringify(requestBody), 
       mode: "cors",
