@@ -8,7 +8,7 @@ function getURLParams() {
   const params = new URLSearchParams(window.location.search);
   return {
     crew: params.get('crew') || 'Équipage inconnu',
-    eventId: params.get('eventId') || ''
+    event: params.get('event') || ''
   };
 }
 
@@ -92,7 +92,7 @@ async function initPage() {
   
   try {
     await fetchDrivers(params.crew);
-    await fetchEventDetails(params.crew, params.eventId);
+    await fetchEventDetails(params.crew, params.event);
     await fetchStints(params.crew, eventData.name);
     setupEventListeners();
   } catch (error) {
@@ -127,11 +127,11 @@ async function fetchDrivers(crew) {
   }
 }
 
-async function fetchEventDetails(crew, eventId) {
+async function fetchEventDetails(crew, eventName) {
   showLoading(true);
   
   try {
-    const response = await fetch(`${WEB_APP_URL}?action=getEvent&crewName=${encodeURIComponent(crew)}&eventId=${encodeURIComponent(eventId)}`);
+    const response = await fetch(`${WEB_APP_URL}?action=getEvent&crewName=${encodeURIComponent(crew)}&eventName=${encodeURIComponent(eventName)}`);
     
     if (!response.ok) {
       throw new Error('Erreur réseau lors de la récupération des détails de l\'événement');
@@ -506,7 +506,7 @@ function saveEventChanges() {
   const requestBody = {
     action: 'editEvent',
     crewName: params.crew,
-    eventId: params.eventId,
+    eventName: params.event,
     newName: newName,
     newDate: newDate,
     newDuration: parseFloat(newDuration)
@@ -556,7 +556,7 @@ function deleteEvent() {
     const requestBody = {
       action: 'deleteEvent',
       crewName: params.crew,
-      eventId: params.eventId
+      eventName: params.event
     };
     
     showLoading(true);
