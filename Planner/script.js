@@ -8,7 +8,7 @@ function getURLParams() {
   const params = new URLSearchParams(window.location.search);
   return {
     crew: params.get('crew') || 'Équipage inconnu',
-    eventId: params.get('eventId') || ''
+    eventId: params.get('event') || ''
   };
 }
 
